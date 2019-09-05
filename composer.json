@@ -1,0 +1,55 @@
+{
+  "name": "sourcya/boilerplate",
+  "description": "Sourcya Laravel BoilerPlate Box",
+  "type": "library",
+    "keywords": [
+        "sourcya",
+        "laravel",
+        "boilerplate",
+        "box",
+        "modules"
+    ],
+    "minimum-stability": "stable",
+    "homepage": "https://github.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ahmed Rawaf",
+            "email": "ahmed.rawaf@sourcya.com",
+            "homepage": "https://sourcya.com",
+            "role": "Developer, Package Maintainer"
+        },
+        {
+            "name": "Mutasim Essa",
+            "email": "mutasim@sourcya.com",
+            "homepage": "https://sourcya.com",
+            "role": "Business Analyst, Software Archetict"
+        }
+    ],
+  "require": {
+    "laravel/framework": "^5.7",
+    "barryvdh/laravel-cors": "^0.11.3",
+    "biscolab/laravel-recaptcha": "^3.0",
+    "konekt/concord": "^1.2",
+    "laravel/passport": "^7.2",
+    "spatie/laravel-permission": "^2.36",
+    "maatwebsite/excel": "^3.1",
+    "guzzlehttp/guzzle": "^6.3",
+    "ext-json": "*",
+    "zendframework/zend-httphandlerrunner": "^1.1",
+    "nicolaslopezj/searchable": "^1.10",
+    "sourcya/core": "^1.0.0",
+    "sourcya/user-module": "^1.0.0",
+    "sourcya/agent-module": "^1.0.0",
+    "sourcya/notification-module": "^1.0.0",
+    "sourcya/upload-module": "^1.0.0"
+  },
+  "autoload": {
+      "classmap": [
+          "src/resources/database/seeds"
+      ],
+    "psr-4": {
+        "Sourcya\\BoilerplateBox\\": "src/"
+    }
+  }
+}
