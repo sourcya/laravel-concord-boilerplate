@@ -6,113 +6,29 @@
 
 Installation
 
-- Install fresh Laravel app on your web server
-- Add Sourcya folder to your app root directory
-- Save the .env.example to .env
-- Update the .env file with your db credentials
-- Add Sourcya boilerplate and their associated modules repositories to your laravel composer.json
-``` 
-"repositories": [
-        {
-            "type": "path",
-            "url": "sourcya/core",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/app-settings-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/address-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/contact-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/status-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/rating-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/attribute-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/boilerplate",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/notification-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/user-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/upload-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/agent-module",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "sourcya/status-module",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
-    "require": {
-        "sourcya/boilerplate": "dev-master",
-    },
-```
-- Run: composer update
-- Run: touch config/concord.php
+> Requires Composer and php7.*
 
->Edit config/concord.php and add your boxes service providers:
+- Install fresh Laravel app on your web server
+```
+$ composer create-project --prefer-dist laravel/laravel dev "5.8.*"
+```
+- Create a new MySql Database with charset UTF8mb4 (IMPORTANT)
+> use phpmyadmin if you have it connected to your MySql/MariaDB host, or follow the following approach
+```
+//Connect to Mysql, if host is not on the same machine, add the host flag like this -h <ip_orHostName>
+mysql -u <mysql username> -p
+
+// After successful login you will have the mysql or mariadb terminal access
+mysql> create database demo_smarty_dev_1 character set UTF8mb4 collate utf8mb4_unicode_ci;
+```
+
+- Update the .env file with your db credentials
+- Install latest version of the package
+```
+$ composer require sourcya/boilerplate
+```
+
+> Edit config/concord.php and add your boxes service providers: (TODO: manage this file to be added by composer)
 ```
 <?php
 
@@ -122,6 +38,11 @@ return [
           Sourcya\CoreBox\Providers\ModuleServiceProvider::class => []
            ]
 ];
+```
+- Change storage and cache folders permissions to 777
+```
+$ chmod 777 -R bootstrap/cache/
+$ chmod 777 -R storage/
 ```
 - Run: php artisan sourcya:install
 - Run: php artisan serve
