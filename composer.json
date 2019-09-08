@@ -33,7 +33,6 @@
     "konekt/concord": "^1.2",
     "laravel/passport": "^7.2",
     "spatie/laravel-permission": "^2.36",
-    "maatwebsite/excel": "^3.1",
     "guzzlehttp/guzzle": "^6.3",
     "ext-json": "*",
     "zendframework/zend-httphandlerrunner": "^1.1",
