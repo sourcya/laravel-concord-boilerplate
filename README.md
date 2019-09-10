@@ -15,11 +15,11 @@ $ composer create-project --prefer-dist laravel/laravel dev "5.8.*"
 - Create a new MySql Database with charset UTF8mb4 (IMPORTANT)
 > use phpmyadmin if you have it connected to your MySql/MariaDB host, or follow the following approach
 ```
-//Connect to Mysql, if host is not on the same machine, add the host flag like this -h <ip_orHostName>
+# Connect to Mysql, if host is not on the same machine, add the host flag like this -h <ip_orHostName>
 mysql -u <mysql username> -p
 
-// After successful login you will have the mysql or mariadb terminal access
-mysql> create database demo_smarty_dev_1 character set UTF8mb4 collate utf8mb4_unicode_ci;
+# After successful login you will have the mysql or mariadb terminal access
+mysql> create database <database_name> character set UTF8mb4 collate utf8mb4_unicode_ci;
 ```
 
 - Update the .env file with your db credentials
