@@ -37,11 +37,11 @@
     "ext-json": "*",
     "zendframework/zend-httphandlerrunner": "^1.1",
     "nicolaslopezj/searchable": "^1.10",
-    "sourcya/core": "dev-master",
-    "sourcya/user-module": "dev-master",
-    "sourcya/agent-module": "dev-master",
-    "sourcya/notification-module": "dev-master",
-    "sourcya/upload-module": "dev-master"
+    "sourcya/core": "dev-devel",
+    "sourcya/user-module": "dev-devel",
+    "sourcya/agent-module": "dev-devel",
+    "sourcya/notification-module": "dev-devel",
+    "sourcya/upload-module": "dev-devel"
   },
   "autoload": {
       "classmap": [
