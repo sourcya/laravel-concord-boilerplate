@@ -9,25 +9,25 @@
         "box",
         "modules"
     ],
-    "minimum-stability": "stable",
-    "homepage": "https://github.com/",
+    "minimum-stability": "dev",
+    "homepage": "https://github.com/sourcya/boilerplate",
     "license": "MIT",
     "authors": [
         {
             "name": "Ahmed Rawaf",
-            "email": "ahmed.rawaf@sourcya.com",
-            "homepage": "https://sourcya.com",
-            "role": "Developer, Package Maintainer"
+            "email": "ahmed.rawaf.elhawary@gmail.com",
+            "homepage": "https://github.com/rawaf",
+            "role": "Developer & Package Maintainer"
         },
         {
             "name": "Mutasim Essa",
             "email": "mutasim@sourcya.com",
-            "homepage": "https://sourcya.com",
-            "role": "Business Analyst, Software Archetict"
+            "homepage": "https://github.com/mutasimissa",
+            "role": "BA & Software Architect"
         }
     ],
   "require": {
-    "laravel/framework": "^5.7",
+    "laravel/framework": "^6.0",
     "barryvdh/laravel-cors": "^0.11.3",
     "biscolab/laravel-recaptcha": "^3.0",
     "konekt/concord": "^1.2",
@@ -37,11 +37,11 @@
     "ext-json": "*",
     "zendframework/zend-httphandlerrunner": "^1.1",
     "nicolaslopezj/searchable": "^1.10",
-    "sourcya/core": "^1.0.0",
-    "sourcya/user-module": "^1.0.0",
-    "sourcya/agent-module": "^1.0.0",
-    "sourcya/notification-module": "^1.0.0",
-    "sourcya/upload-module": "^1.0.0"
+    "sourcya/core": "dev-master",
+    "sourcya/user-module": "dev-master",
+    "sourcya/agent-module": "dev-master",
+    "sourcya/notification-module": "dev-master",
+    "sourcya/upload-module": "dev-master"
   },
   "autoload": {
       "classmap": [
