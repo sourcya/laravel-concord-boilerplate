@@ -20,7 +20,7 @@
             "role": "Developer & Package Maintainer"
         },
         {
-            "name": "Mutasim Essa",
+            "name": "Mutasim Issa",
             "email": "mutasim@sourcya.com",
             "homepage": "https://github.com/mutasimissa",
             "role": "BA & Software Architect"
@@ -37,11 +37,11 @@
     "ext-json": "*",
     "zendframework/zend-httphandlerrunner": "^1.1",
     "nicolaslopezj/searchable": "^1.10",
-    "sourcya/core": "dev-devel",
-    "sourcya/user-module": "dev-devel",
-    "sourcya/agent-module": "dev-devel",
-    "sourcya/notification-module": "dev-devel",
-    "sourcya/upload-module": "dev-devel"
+    "sourcya/core": "^1.0.0",
+    "sourcya/user-module": "^1.0.0",
+    "sourcya/agent-module": "^1.0.0",
+    "sourcya/notification-module": "^1.0.0",
+    "sourcya/upload-module": "^1.0.0"
   },
   "autoload": {
       "classmap": [
