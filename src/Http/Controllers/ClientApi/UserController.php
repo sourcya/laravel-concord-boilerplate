@@ -29,16 +29,12 @@ class UserController extends Controller
      * @param User $user
      * @return UserResource
      */
-    public function show(User $user)
+    public function show($userId)
     {
-        if (auth()->id() == $user->id) {
-            if ($user){
-                $message = 'User info has been fetched successfully';
-                return new UserResource($user,$message);
-            } else {
-                $message = 'No such user found';
-                return $this->errorResponseHandler($message,404);
-            }
+        if (UserProxy::where('id',$userId)->exists() && auth()->id() == $userId) {
+            $user = UserProxy::where('id',$userId)->first();
+            $message = 'User info has been fetched successfully';
+            return new UserResource($user,$message);
         } else {
             $message = 'UnAuthorized';
             return $this->errorResponseHandler($message,401);
@@ -53,11 +49,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function update(Request $request,User $user)
+    public function update(Request $request, $userId)
     {
-        if (!empty($request->all())) {
-            if (auth()->id() == $user->id) {
-
+        if (UserProxy::where('id',$userId)->exists() && auth()->id() == $userId) {
+            $user = UserProxy::where('id',$userId)->first();
+            if (!empty($request->all())) {
                 if (isset($request->first_name)) {
                     $this->validate($request, [
                         'first_name' => 'required|string|max:191',
@@ -119,12 +115,12 @@ class UserController extends Controller
                 }
 
             } else {
-                $message = 'UnAuthorized';
-                return $this->errorResponseHandler($message, 401);
+                $message = 'Missing some inputs';
+                return $this->errorResponseHandler($message, 404);
             }
         } else {
-            $message = 'Missing some inputs';
-            return $this->errorResponseHandler($message, 404);
+            $message = 'UnAuthorized';
+            return $this->errorResponseHandler($message, 401);
         }
     }
 }

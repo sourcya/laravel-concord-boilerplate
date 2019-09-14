@@ -6,8 +6,8 @@ Route::prefix('api/v1')->middleware('api')->group(function () {
     Route::post('auth/logout', 'Auth\PassportController@logout');
     Route::post('auth/logout/allDevices', 'Auth\PassportController@logoutAllDevices');
     Route::group(['middleware' => ['role:Client']], function () {
-        Route::get('users/{user}', 'ClientApi\UserController@show');
-        Route::put('users/{user}', 'ClientApi\UserController@update');
+        Route::get('users/{userId}', 'ClientApi\UserController@show');
+        Route::put('users/{userId}', 'ClientApi\UserController@update');
 
         Route::get('notifications', 'NotificationController@index');
         Route::get('notifications/unRead', 'NotificationController@unRead');
