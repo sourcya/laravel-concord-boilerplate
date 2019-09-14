@@ -44,5 +44,9 @@ return [
 $ chmod 777 -R bootstrap/cache/
 $ chmod 777 -R storage/
 ```
-- Run: php artisan sourcya:install
+- Run: php artisan sourcya:boilerplate-install
 - Run: php artisan serve
+## Contributors
+
+[Sourcya](https://www.sourcya.com/) exists thanks to all the people who contribute.
+<a href="https://github.com/sourcya/pms/graphs/contributors"><img src="https://avatars1.githubusercontent.com/u/18500858?s=400&v=4" width= "32" height= "32" title="contributors" alt="contributors" /><img src="https://avatars3.githubusercontent.com/u/9040320?s=460&v=4" width= "32" height= "32" title="contributors" alt="contributors" /></a>
