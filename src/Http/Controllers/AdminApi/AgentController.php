@@ -22,6 +22,18 @@ class AgentController extends Controller
         $this->middleware('permission:Handling Agent Requests', ['only' => ['pending','approve','decline']]);
     }
 
+    public function index()
+    {
+        if (AgentProxy::first()) {
+            $agents = AgentProxy::latest()->paginate(12);
+            $message = 'All agents has been fetched successfully';
+            return new AgentCollection($agents,$message);
+        } else {
+            $message = 'No registered agents yet';
+            return $this->errorResponseHandler($message,404);
+        }
+    }
+
     /**
      * @return \Illuminate\Http\JsonResponse|AgentCollection
      */

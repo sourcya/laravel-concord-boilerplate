@@ -20,7 +20,7 @@ class SourcyaInstall extends Command
      *
      * @var string
      */
-    protected $signature = 'sourcya:install';
+    protected $signature = 'sourcya:boilerplate-install';
 
     /**
      * The console command description.
