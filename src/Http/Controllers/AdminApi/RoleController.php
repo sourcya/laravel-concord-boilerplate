@@ -86,12 +86,12 @@ class RoleController extends Controller
     {
         if (Role::where('id',$roleId)->exists()) {
             $this->validate($request, [
-                'name' => 'required|unique:roles,name,' . $roleId,
+                //'name' => 'required|unique:roles,name,' . $roleId,
                 'permissions' => 'nullable|exists:permissions,name',
             ]);
 
             $role = Role::find($roleId);
-            $role->update(['name' => $request->name]);
+            //$role->update(['name' => $request->name]);
 
             if (isset($request->permissions)) {
                 $role->syncPermissions($request->permissions);
