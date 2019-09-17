@@ -86,19 +86,23 @@ class RoleController extends Controller
     {
         if (Role::where('id',$roleId)->exists()) {
             $this->validate($request, [
-                //'name' => 'required|unique:roles,name,' . $roleId,
+                'name' => 'required|unique:roles,name,' . $roleId,
                 'permissions' => 'nullable|exists:permissions,name',
             ]);
 
             $role = Role::find($roleId);
-            //$role->update(['name' => $request->name]);
+            if ($role->name == 'Admin' || $role->name == 'Client' || $role->name == 'Agent'){
+                $message = 'Can\'t update default role';
+                return $this->errorResponseHandler($message, 422);
+            } else {
+                $role->update(['name' => $request->name]);
 
-            if (isset($request->permissions)) {
-                $role->syncPermissions($request->permissions);
+                if (isset($request->permissions)) {
+                    $role->syncPermissions($request->permissions);
+                }
+                $message = 'Role has been updated Successfully';
+                return (new RoleResource($role, $message))->response()->setStatusCode(202);
             }
-
-            $message = 'Role has been updated Successfully';
-            return (new RoleResource($role, $message))->response()->setStatusCode(202);
         } else {
             $message = 'No such role found';
             return $this->errorResponseHandler($message, 404);
