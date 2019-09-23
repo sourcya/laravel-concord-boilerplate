@@ -87,7 +87,7 @@ class UserController extends Controller
             'last_name' => ['required', 'string', 'max:191'],
             'email' => ['required', 'string', 'email', 'max:191', 'unique:user,email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'roles' => 'required|exists:roles,name',
+            'roles.*' => 'required|exists:roles,name|not_in:Agent',
         ]);
 
         $user = UserProxy::create([
@@ -144,7 +144,7 @@ class UserController extends Controller
 
             if (isset($request->roles)) {
                 $this->validate($request, [
-                    'roles' => 'required|exists:roles,name',
+                    'roles.*' => 'required|exists:roles,name|not_in:Agent',
                 ]);
                 $user->syncRoles($request->roles);
             }
